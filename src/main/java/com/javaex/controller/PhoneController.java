@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -17,6 +18,7 @@ public class PhoneController {
 	// 메소드
 	@RequestMapping(value = "/list", method = { RequestMethod.GET, RequestMethod.POST })
 	public String list(Model model) {
+		System.out.println("PhoneController>list");
 		PhoneDao pDao = new PhoneDao();
 		List<PersonVo> pList = pDao.personSelect();
 
@@ -34,7 +36,7 @@ public class PhoneController {
 	@RequestMapping(value = "/write", method = { RequestMethod.GET, RequestMethod.POST })
 	public String write(@ModelAttribute PersonVo pVo) { // Automatically adds Parameters to class (through set methods
 														// in Vo)
-		System.out.println("PhoneController>list");
+		System.out.println("PhoneController>write");
 
 		PhoneDao pDao = new PhoneDao();
 		System.out.println(pVo);
@@ -44,8 +46,8 @@ public class PhoneController {
 		return "redirect:/list";
 	}
 
-	@RequestMapping(value = "/delete", method = { RequestMethod.GET, RequestMethod.POST })
-	public String delete(@RequestParam("personId") int personId) {
+	@RequestMapping(value = "/delete/{personId}", method = { RequestMethod.GET, RequestMethod.POST })
+	public String delete(@PathVariable("personId") int personId) {
 		System.out.println("PhoneController>delete");
 
 		PhoneDao pDao = new PhoneDao();

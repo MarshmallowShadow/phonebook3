@@ -27,7 +27,7 @@
 				</tr>
 				<tr>
 					<td><a href="./updateForm?personId=${p.personId }">[수정]</a></td>
-					<td><a href="./delete?personId=${p.personId }">[삭제]</a></td>
+					<td><a href="./delete/${p.personId }">[삭제]</a></td>
 				</tr>
 			</table>
 			<br>
