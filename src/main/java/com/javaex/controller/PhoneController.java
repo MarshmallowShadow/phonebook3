@@ -40,8 +40,7 @@ public class PhoneController {
 	}
 
 	@RequestMapping(value = "/write", method = { RequestMethod.GET, RequestMethod.POST })
-	public String write(@ModelAttribute PersonVo pVo) { // Automatically adds Parameters to class (through set methods
-														// in Vo)
+	public String write(@ModelAttribute PersonVo pVo) { // Automatically adds Parameters to class (through set methods in Vo)
 		System.out.println("PhoneController>write");
 
 		System.out.println(pVo);
